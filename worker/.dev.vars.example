@@ -1,0 +1,5 @@
+# Copy to `.dev.vars` for local Wrangler development.
+TELEGRAM_BOT_TOKEN=123456:replace-me
+TELEGRAM_CHAT_ID=123456789
+# Comma separated. Keep localhost for local dev and add your Pages domain.
+ALLOWED_ORIGINS=http://localhost:3000,https://example.pages.dev
