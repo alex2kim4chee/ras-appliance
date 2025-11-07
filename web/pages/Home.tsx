@@ -95,18 +95,18 @@ const Home: React.FC = () => {
 
       {/* Trust Badges */}
       <section className="bg-brand-light">
-         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-8 text-center py-8 px-4">
-            <div className="flex items-center justify-center gap-3 text-brand-gray">
-                <FaCheckCircle className="text-brand-orange text-2xl"/>
-                <span className="font-semibold">Specialists in Premium Brands</span>
+         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center py-8 px-4">
+            <div className="flex flex-col items-center gap-2 text-brand-gray">
+                <FaCheckCircle className="text-brand-orange text-3xl md:text-4xl" />
+                <span className="font-semibold text-base md:text-lg text-center">Specialists in Premium Brands</span>
             </div>
-            <div className="flex items-center justify-center gap-3 text-brand-gray">
-                <FaShieldAlt className="text-brand-orange text-2xl"/>
-                <span className="font-semibold">Licensed & Insured</span>
+            <div className="flex flex-col items-center gap-2 text-brand-gray">
+                <FaShieldAlt className="text-brand-orange text-3xl md:text-4xl" />
+                <span className="font-semibold text-base md:text-lg text-center">Licensed & Insured</span>
             </div>
-            <div className="flex items-center justify-center gap-3 text-brand-gray col-span-2 md:col-span-1">
-                <FaShippingFast className="text-brand-orange text-2xl"/>
-                <span className="font-semibold">Same-Day Options Available</span>
+            <div className="flex flex-col items-center gap-2 text-brand-gray">
+                <FaShippingFast className="text-brand-orange text-3xl md:text-4xl" />
+                <span className="font-semibold text-base md:text-lg text-center">Same-Day Options Available</span>
             </div>
          </div>
       </section>
