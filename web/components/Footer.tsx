@@ -79,7 +79,17 @@ const Footer: React.FC = () => {
 
         <div className="mt-12 border-t border-gray-700 pt-8 text-center text-base text-gray-400">
           <p>&copy; {new Date().getFullYear()} Residential Appliance Services. All Rights Reserved.</p>
-          <p className="text-sm mt-1">Website by a World-Class AI Engineer</p>
+          <p className="text-sm mt-1">
+            Website by{' '}
+            <a
+              href="https://pecanstudio.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-orange hover:text-white transition-colors"
+            >
+              Pecan Studio Web Agency
+            </a>
+          </p>
         </div>
       </div>
     </footer>

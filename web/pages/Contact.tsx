@@ -62,8 +62,17 @@ const Contact: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-8 h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <p className="text-gray-500">Google Map Embed Placeholder</p>
+                    <div className="mt-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-gray-200">
+                        <iframe
+                          title="Residential Appliance Services Location"
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.29216491303!2d-73.96019582444151!3d40.733596271390375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2593fb75be25f%3A0xfd253bdd9d470612!2s97%20Green%20St%2C%20Brooklyn%2C%20NY%2011222!5e0!3m2!1sen!2sus!4v1762477295293!5m2!1sen!2sus"
+                          width="100%"
+                          height="320"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </div>
 
