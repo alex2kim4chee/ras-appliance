@@ -142,10 +142,15 @@ const Home: React.FC = () => {
                 <h2 className="text-3xl font-extrabold text-brand-blue sm:text-4xl">Premium Brands We Specialize In</h2>
                 <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-600">Our technicians are factory-trained and experienced with the leading high-end appliance brands.</p>
             </div>
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
                 {PREMIUM_BRANDS.map(brand => (
                     <div key={brand.name} className="flex justify-center">
-                        <img loading="lazy" className="h-10 w-auto" src={`https://picsum.photos/200/50?random=${Math.random()}`} alt={brand.alt} />
+                        <img
+                          loading="lazy"
+                          className="h-10 w-auto object-contain"
+                          src={`/images/${brand.file}`}
+                          alt={brand.alt}
+                        />
                     </div>
                 ))}
             </div>

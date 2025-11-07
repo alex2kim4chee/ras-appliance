@@ -28,7 +28,12 @@ const Brands: React.FC = () => {
                 {BRANDS_DATA.map(brand => (
                     <div key={brand.name} className="p-8 bg-white rounded-lg shadow-md border border-gray-100 grid md:grid-cols-3 gap-8 items-center">
                         <div className="flex justify-center md:justify-start">
-                             <img loading="lazy" className="h-12 w-auto" src={`https://picsum.photos/200/50?random=${Math.random()}`} alt={`${brand.name} logo`} />
+                             <img
+                                loading="lazy"
+                                className="h-12 w-auto object-contain"
+                                src={brand.logoUrl}
+                                alt={`${brand.name} logo`}
+                             />
                         </div>
                         <div className="md:col-span-2">
                              <h2 className="text-2xl font-bold text-brand-blue">{brand.name} Appliance Repair</h2>

@@ -30,21 +30,17 @@ export const SERVICES: Service[] = [
 ];
 
 export const PREMIUM_BRANDS = [
-  { name: 'Sub-Zero', alt: 'Sub-Zero Logo', file: 'sub-zero.svg' },
-  { name: 'Wolf', alt: 'Wolf Appliance Logo', file: 'wolf.svg' },
-  { name: 'Bosch', alt: 'Bosch Logo', file: 'bosch.svg' },
-  { name: 'Liebherr', alt: 'Liebherr Logo', file: 'liebherr.svg' },
-  { name: 'Miele', alt: 'Miele Logo', file: 'miele.svg' },
-  { name: 'Viking', alt: 'Viking Range Logo', file: 'viking.svg' },
-  { name: 'Gaggenau', alt: 'Gaggenau Logo', file: 'gaggenau.svg' },
-  { name: 'Thermador', alt: 'Thermador Logo', file: 'thermador.svg' },
+  { name: 'Sub-Zero', alt: 'Sub-Zero Logo', file: 'subzero_logo.png' },
+  { name: 'Bosch', alt: 'Bosch Logo', file: 'Bosch-Logo.png' },
+  { name: 'Liebherr', alt: 'Liebherr Logo', file: 'Liebherr-Logo.png' },
+  { name: 'Miele', alt: 'Miele Logo', file: 'miele-1-logo-png-transparent.png' },
 ];
 
 export const BRANDS_DATA: Brand[] = [
-    { name: 'Liebherr', logoUrl: '/img/liebherr.svg', services: ['Refrigerators', 'Ice Makers'], description: 'We are factory-authorized specialists for Liebherr refrigeration, ensuring your premium appliance gets the expert care it needs.' },
-    { name: 'Bosch', logoUrl: '/img/bosch.svg', services: ['Washers', 'Dryers', 'Dishwashers', 'Ovens', 'Stoves', 'Cooktops'], description: 'Our technicians are highly experienced with the full range of Bosch home appliances, from laundry to kitchen.' },
-    { name: 'Sub-Zero', logoUrl: '/img/sub-zero.svg', services: ['Refrigerators', 'Wine Coolers'], description: 'Trust our experts to maintain and repair your Sub-Zero refrigeration systems, known for their longevity and performance.' },
-    { name: 'Miele', logoUrl: '/img/miele.svg', services: ['Dishwashers', 'Dryers', 'Washing Machines', 'Ovens'], description: 'We provide meticulous service for Miele appliances, upholding their standard of "Immer Besser" (Forever Better).'},
+    { name: 'Liebherr', logoUrl: '/images/Liebherr-Logo.png', services: ['Refrigerators', 'Ice Makers'], description: 'We are factory-authorized specialists for Liebherr refrigeration, ensuring your premium appliance gets the expert care it needs.' },
+    { name: 'Bosch', logoUrl: '/images/Bosch-Logo.png', services: ['Washers', 'Dryers', 'Dishwashers', 'Ovens', 'Stoves', 'Cooktops'], description: 'Our technicians are highly experienced with the full range of Bosch home appliances, from laundry to kitchen.' },
+    { name: 'Sub-Zero', logoUrl: '/images/subzero_logo.png', services: ['Refrigerators', 'Wine Coolers'], description: 'Trust our experts to maintain and repair your Sub-Zero refrigeration systems, known for their longevity and performance.' },
+    { name: 'Miele', logoUrl: '/images/miele-1-logo-png-transparent.png', services: ['Dishwashers', 'Dryers', 'Washing Machines', 'Ovens'], description: 'We provide meticulous service for Miele appliances, upholding their standard of "Immer Besser" (Forever Better).'},
 ];
 
 
