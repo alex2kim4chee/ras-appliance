@@ -48,7 +48,7 @@ const ServiceFormModal: React.FC = () => {
                 </button>
             </div>
             <div className="mt-6">
-                <ServiceForm onSuccess={closeModal} />
+                <ServiceForm />
             </div>
         </div>
       </div>
