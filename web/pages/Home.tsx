@@ -1,11 +1,18 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useModal } from '../App';
-import { CONTACT, SERVICES, PREMIUM_BRANDS, REVIEWS, FAQ_ITEMS } from '../constants';
-import { FaPhoneAlt, FaWrench, FaStar, FaShieldAlt, FaShippingFast, FaCheckCircle } from 'react-icons/fa';
+import { CONTACT, SERVICES, PREMIUM_BRANDS, FAQ_ITEMS } from '../constants';
+import { FaPhoneAlt, FaWrench, FaStar, FaShieldAlt, FaShippingFast, FaCheckCircle, FaYelp } from 'react-icons/fa';
 import ServiceForm from '../components/ServiceForm';
 import SEO from '../components/SEO';
+
+interface YelpReview {
+  name: string;
+  location: string;
+  date: string;
+  text: string;
+}
 
 const AccordionItem: React.FC<{ item: { question: string; answer: string }, open: boolean, onToggle: () => void }> = ({ item, open, onToggle }) => (
     <div className="border-b">
@@ -30,6 +37,14 @@ const AccordionItem: React.FC<{ item: { question: string; answer: string }, open
 const Home: React.FC = () => {
   const { openModal } = useModal();
   const [openFaq, setOpenFaq] = React.useState<number | null>(0);
+  const [yelpReviews, setYelpReviews] = useState<YelpReview[]>([]);
+
+  useEffect(() => {
+    fetch('/yelp.json')
+      .then(res => res.json())
+      .then(data => setYelpReviews(data.slice(0, 9))) // Take first 9 reviews
+      .catch(err => console.error('Failed to load reviews:', err));
+  }, []);
 
   const homeSchema = {
     "@context": "https://schema.org",
@@ -157,26 +172,61 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials - Yelp Reviews Widget */}
        <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-                <h2 className="text-3xl font-extrabold text-brand-blue sm:text-4xl">What Our Customers Say</h2>
-                <p className="mt-4 text-xl text-gray-600">Rated 5-Stars on Yelp for our fast, reliable service.</p>
+            <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <FaYelp size={48} color="#d32323" />
+                  <h2 className="text-3xl font-extrabold text-brand-blue sm:text-4xl">What Our Customers Say</h2>
+                </div>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i}>
+                        <FaStar size={24} color="#d32323" />
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-2xl font-bold text-gray-900">4.9</span>
+                </div>
+                <p className="text-gray-600 text-lg">
+                  Based on <span className="font-semibold">189 reviews</span> on Yelp
+                </p>
             </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-3">
-                {REVIEWS.map((review, index) => (
-                    <div key={index} className="p-6 bg-brand-light rounded-lg shadow-sm">
-                        <div className="flex items-center">
-                            {[...Array(review.rating)].map((_, i) => <FaStar key={i} className="text-yellow-400" />)}
-                        </div>
-                        <p className="mt-4 text-gray-600">"{review.snippet}"</p>
-                        <p className="mt-4 font-bold text-gray-800">- {review.author}</p>
-                    </div>
+
+            {/* Desktop: 3 Column Grid */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6 mb-8">
+              {yelpReviews.slice(0, 3).map((review, index) => (
+                <YelpReviewCard key={index} review={review} />
+              ))}
+            </div>
+
+            {/* Tablet: 2 Column Grid */}
+            <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-6 mb-8">
+              {yelpReviews.slice(0, 2).map((review, index) => (
+                <YelpReviewCard key={index} review={review} />
+              ))}
+            </div>
+
+            {/* Mobile: Horizontal Scroll */}
+            <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 mb-8">
+              <div className="flex gap-4" style={{ width: 'max-content' }}>
+                {yelpReviews.slice(0, 3).map((review, index) => (
+                  <div key={index} style={{ width: '85vw', maxWidth: '400px' }}>
+                    <YelpReviewCard review={review} />
+                  </div>
                 ))}
+              </div>
             </div>
-            <div className="mt-8 text-center">
-                <a href={CONTACT.YELP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-md hover:bg-brand-blue-dark transition-colors">Read More Reviews on Yelp</a>
+
+            <div className="text-center">
+                <Link to="/reviews" className="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-md hover:bg-red-700 transition-colors mr-4">
+                  View All Reviews
+                </Link>
+                <a href={CONTACT.YELP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-md hover:bg-brand-blue-dark transition-colors">
+                  Read on Yelp
+                </a>
             </div>
         </div>
       </section>
@@ -219,6 +269,52 @@ const Home: React.FC = () => {
       </section>
     </div>
     </>
+  );
+};
+
+// Yelp Review Card Component for Home Page
+const YelpReviewCard: React.FC<{ review: YelpReview }> = ({ review }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const shouldTruncate = review.text.length > 150;
+  const displayText = isExpanded || !shouldTruncate ? review.text : review.text.slice(0, 150) + '...';
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  };
+
+  return (
+    <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col h-full">
+      {/* Stars */}
+      <div className="flex gap-1 mb-3">
+        {[...Array(5)].map((_, i) => (
+          <span key={i}>
+            <FaStar size={18} color="#d32323" />
+          </span>
+        ))}
+      </div>
+
+      {/* Review Text */}
+      <p className="text-gray-700 text-sm leading-relaxed mb-3 flex-grow">
+        {displayText}
+      </p>
+
+      {shouldTruncate && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-red-600 font-semibold text-sm hover:text-red-700 mb-3 text-left"
+        >
+          {isExpanded ? 'Show less' : 'Read more'}
+        </button>
+      )}
+
+      {/* Author Info */}
+      <div className="border-t border-gray-100 pt-3 mt-auto">
+        <p className="font-bold text-gray-900 text-sm">{review.name}</p>
+        <p className="text-gray-500 text-xs">{review.location}</p>
+        <p className="text-gray-400 text-xs mt-1">{formatDate(review.date)}</p>
+      </div>
+    </div>
   );
 };
 
