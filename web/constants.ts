@@ -15,7 +15,7 @@ export const CONTACT = {
     PHONE_TEL: 'tel:+19293010033',
     ADDRESS: '97 Green St, Brooklyn, NY 11222',
     EMAIL: 'service@rasnewyork.com',
-    YELP_URL: 'https://www.yelp.com/biz/placeholder-for-residential-appliance-services'
+    YELP_URL: 'https://www.yelp.com/biz/residential-appliance-services-brooklyn-2'
 };
 
 export const SERVICES: Service[] = [
