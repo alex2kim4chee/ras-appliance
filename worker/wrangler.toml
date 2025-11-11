@@ -4,4 +4,4 @@ compatibility_date = "2024-11-19"
 workers_dev = true
 
 [vars]
-ALLOWED_ORIGINS = "https://ras-appliance.pages.dev"
+ALLOWED_ORIGINS = "https://fixbyras.com"
