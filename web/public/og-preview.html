@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Graph Preview - FixbyRAS</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f0f2f5;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #1c1e21;
+            margin-bottom: 40px;
+        }
+        .preview-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .preview-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .preview-content {
+            padding: 12px;
+        }
+        .preview-url {
+            color: #606770;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .preview-title {
+            color: #1c1e21;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .preview-description {
+            color: #606770;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .platform-label {
+            background: #0D47A1;
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #0D47A1;
+            padding: 16px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #0D47A1;
+        }
+        .info-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin: 8px 0;
+        }
+        .info-box code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Open Graph Preview - FixbyRAS</h1>
+
+        <div class="info-box">
+            <h3>🎯 Как проверить мета-теги:</h3>
+            <ul>
+                <li><strong>Facebook:</strong> <a href="https://developers.facebook.com/tools/debug/" target="_blank">Facebook Sharing Debugger</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/post-inspector/" target="_blank">LinkedIn Post Inspector</a></li>
+                <li><strong>Twitter:</strong> <a href="https://cards-dev.twitter.com/validator" target="_blank">Twitter Card Validator</a></li>
+                <li><strong>Универсальный:</strong> <a href="https://www.opengraph.xyz/" target="_blank">OpenGraph.xyz</a></li>
+            </ul>
+            <p><strong>Ваш сайт:</strong> <code>https://fixbyras.com</code></p>
+        </div>
+
+        <!-- Facebook Preview -->
+        <div class="preview-card">
+            <div class="platform-label">📘 Facebook / Messenger</div>
+            <img src="/ras-img.PNG" alt="FixbyRAS Preview">
+            <div class="preview-content">
+                <div class="preview-url">fixbyras.com</div>
+                <div class="preview-title">FixbyRAS - Expert Appliance Repair in Brooklyn & Manhattan</div>
+                <div class="preview-description">Professional appliance repair for premium brands. Same-day service available. Licensed & insured. Call (929) 301-0033 or book online.</div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Preview -->
+        <div class="preview-card">
+            <div class="platform-label">💬 WhatsApp</div>
+            <img src="/ras-img.PNG" alt="FixbyRAS Preview">
+            <div class="preview-content">
+                <div class="preview-title">FixbyRAS - Expert Appliance Repair in Brooklyn & Manhattan</div>
+                <div class="preview-description">Professional appliance repair for premium brands. Same-day service available. Licensed & insured. Call (929) 301-0033 or book online.</div>
+                <div class="preview-url">fixbyras.com</div>
+            </div>
+        </div>
+
+        <!-- LinkedIn Preview -->
+        <div class="preview-card">
+            <div class="platform-label">💼 LinkedIn</div>
+            <img src="/ras-img.PNG" alt="FixbyRAS Preview">
+            <div class="preview-content">
+                <div class="preview-title">FixbyRAS - Expert Appliance Repair in Brooklyn & Manhattan</div>
+                <div class="preview-url">fixbyras.com</div>
+            </div>
+        </div>
+
+        <!-- Twitter Preview -->
+        <div class="preview-card">
+            <div class="platform-label">🐦 Twitter / X</div>
+            <img src="/ras-img.PNG" alt="FixbyRAS Preview">
+            <div class="preview-content">
+                <div class="preview-title">FixbyRAS - Expert Appliance Repair in Brooklyn & Manhattan</div>
+                <div class="preview-description">Professional appliance repair for premium brands. Same-day service available. Licensed & insured. Call (929) 301-0033 or book online.</div>
+                <div class="preview-url">fixbyras.com</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>✅ Что было добавлено:</h3>
+            <ul>
+                <li>✔️ Open Graph теги (og:title, og:description, og:image, og:url)</li>
+                <li>✔️ Twitter Card теги (twitter:card, twitter:title, twitter:description, twitter:image)</li>
+                <li>✔️ Правильные размеры изображения (1200x630px рекомендуется)</li>
+                <li>✔️ SEO теги (keywords, author, canonical URL)</li>
+                <li>✔️ Geo-теги для локального SEO</li>
+                <li>✔️ Динамические мета-теги через компонент SEO</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>⚠️ Важно:</h3>
+            <ul>
+                <li>Убедитесь, что изображение <code>/ras-img.PNG</code> доступно по URL</li>
+                <li>Изображение должно быть минимум 1200x630px для лучшего качества</li>
+                <li>Замените <code>https://fixbyras.com</code> на ваш реальный домен</li>
+                <li>После публикации используйте инструменты валидации выше</li>
+                <li>Facebook и другие платформы кэшируют мета-теги - используйте Debugger для сброса кэша</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
