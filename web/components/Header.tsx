@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <NavLink to="/" className="text-white text-2xl font-bold tracking-tight">
-              RAS<span className="text-brand-orange">.</span>
+              FixbyRAS<span className="text-brand-orange">.</span>
             </NavLink>
           </div>
           <div className="hidden md:block">

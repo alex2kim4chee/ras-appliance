@@ -21,7 +21,9 @@ const Footer: React.FC = () => {
           
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-brand-orange">Residential Appliance Services</h3>
+            <h3 className="text-xl font-bold">
+              <span className="text-white">FixbyRAS</span><span className="text-brand-orange">.</span>
+            </h3>
             <p className="text-gray-300">Your trusted local experts for premium appliance repair.</p>
             <div className="space-y-2">
               <a href={CONTACT.PHONE_TEL} className="flex items-center gap-3 hover:text-brand-orange transition-colors">
@@ -78,7 +80,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 border-t border-gray-700 pt-8 text-center text-base text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Residential Appliance Services. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} FixbyRAS - Residential Appliance Services. All Rights Reserved.</p>
           <p className="text-sm mt-1">
             Website by{' '}
             <a

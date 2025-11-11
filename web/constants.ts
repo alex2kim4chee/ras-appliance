@@ -14,8 +14,12 @@ export const CONTACT = {
     PHONE: '+1 (929) 301-0033',
     PHONE_TEL: 'tel:+19293010033',
     ADDRESS: '97 Green St, Brooklyn, NY 11222',
-    EMAIL: 'service@rasnewyork.com',
-    YELP_URL: 'https://www.yelp.com/biz/residential-appliance-services-brooklyn-2'
+    EMAIL: 'service@fixbyras.com',
+    YELP_URL: 'https://www.yelp.com/biz/residential-appliance-services-brooklyn-2',
+    BUSINESS_HOURS: {
+        WEEKDAY: 'Mon - Fri: 9am - 9pm',
+        WEEKEND: 'Sat - Sun: 11am - 9pm'
+    }
 };
 
 export const SERVICES: Service[] = [

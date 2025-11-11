@@ -58,7 +58,8 @@ const Contact: React.FC = () => {
                             <FaClock className="h-8 w-8 text-brand-orange mt-1" />
                             <div>
                                 <h3 className="text-xl font-semibold">Business Hours</h3>
-                                <p className="text-lg text-gray-700">[Hours Placeholder: e.g., Mon-Fri: 8am - 6pm]</p>
+                                <p className="text-lg text-gray-700">{CONTACT.BUSINESS_HOURS.WEEKDAY}</p>
+                                <p className="text-lg text-gray-700">{CONTACT.BUSINESS_HOURS.WEEKEND}</p>
                             </div>
                         </div>
                     </div>
