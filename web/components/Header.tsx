@@ -38,16 +38,12 @@ const Header: React.FC = () => {
             <NavLink to="/" className="flex flex-col leading-tight">
               <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">Residential Appliance Services</span>
               <span className="text-brand-orange text-xs md:text-sm lg:text-base font-semibold">FixbyRAS<span className="text-white">.</span></span>
+              {/* Business Hours under logo */}
+              <div className="flex items-center text-white/70 text-xs mt-1">
+                <FaClock className="mr-1.5 text-brand-orange" size={10} />
+                <span>{CONTACT.BUSINESS_HOURS.WEEKDAY} • {CONTACT.BUSINESS_HOURS.WEEKEND}</span>
+              </div>
             </NavLink>
-          </div>
-
-          {/* Business Hours - Desktop */}
-          <div className="hidden lg:flex items-center text-white/90 text-sm">
-            <FaClock className="mr-2 text-brand-orange" />
-            <div className="flex flex-col leading-tight">
-              <span>{CONTACT.BUSINESS_HOURS.WEEKDAY}</span>
-              <span>{CONTACT.BUSINESS_HOURS.WEEKEND}</span>
-            </div>
           </div>
 
           <div className="hidden md:block">
