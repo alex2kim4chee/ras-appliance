@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useModal } from '../App';
 import { CONTACT, SERVICES, PREMIUM_BRANDS, FAQ_ITEMS } from '../constants';
-import { FaPhoneAlt, FaWrench, FaStar, FaShieldAlt, FaShippingFast, FaCheckCircle, FaYelp } from 'react-icons/fa';
+import { FaPhoneAlt, FaWrench, FaStar, FaShieldAlt, FaShippingFast, FaCheckCircle, FaYelp, FaCheck } from 'react-icons/fa';
 import ServiceForm from '../components/ServiceForm';
 import SEO from '../components/SEO';
 
@@ -86,21 +86,26 @@ const Home: React.FC = () => {
     <SEO title="Residential Appliance Services | Brooklyn & Manhattan" description="Expert, same-day appliance repair for Sub-Zero, Wolf, Bosch, Miele & more in Brooklyn and Manhattan. Licensed & insured. Call (929) 301-0033 or book online." schema={homeSchema} />
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-brand-blue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+      <section className="relative bg-brand-blue text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/home-page-hero.webp)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/95 via-brand-blue/85 to-brand-blue/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
             <div className="flex justify-center items-center gap-2 text-brand-orange">
                 <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">Expert Appliance Repair in Brooklyn & Manhattan</h1>
-            <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
+            <h1 className="text-4xl md:text-6xl font-extrabold mt-4 leading-tight drop-shadow-lg">Expert Appliance Repair in Brooklyn & Manhattan</h1>
+            <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-white drop-shadow-md">
                 Specializing in premium brands like Sub-Zero, Wolf, Bosch & Miele. Same-day options available. Licensed & Insured.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                 <a href={CONTACT.PHONE_TEL} className="w-full sm:w-auto flex items-center justify-center gap-3 bg-brand-orange text-white hover:bg-brand-orange-dark font-bold py-4 px-8 rounded-md transition-all duration-300 text-lg">
+                 <a href={CONTACT.PHONE_TEL} className="w-full sm:w-auto flex items-center justify-center gap-3 bg-brand-orange text-white hover:bg-brand-orange-dark font-bold py-4 px-8 rounded-md transition-all duration-300 text-lg shadow-lg">
                     <FaPhoneAlt />
                     <span>Call Now</span>
                 </a>
-                <button onClick={openModal} className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-brand-blue hover:bg-gray-200 font-bold py-4 px-8 rounded-md transition-all duration-300 text-lg">
+                <button onClick={openModal} className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-brand-blue hover:bg-gray-200 font-bold py-4 px-8 rounded-md transition-all duration-300 text-lg shadow-lg">
                     <FaWrench />
                     <span>Request Service</span>
                 </button>
@@ -135,12 +140,25 @@ const Home: React.FC = () => {
             </div>
             <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {SERVICES.slice(0, 8).map(service => (
-                    <Link key={service.id} to={`/services/${service.id}`} className="block p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100 text-center">
-                        <div className="flex justify-center items-center">
-                            <service.icon className="h-12 w-12 text-brand-orange" />
+                    <Link key={service.id} to={`/services/${service.id}`} className="block overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100">
+                        {service.image ? (
+                            <div className="w-full h-48 overflow-hidden bg-gray-100">
+                                <img
+                                    src={service.image}
+                                    alt={service.name}
+                                    className="w-full h-full object-cover"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ) : (
+                            <div className="flex justify-center items-center h-48 bg-gray-100">
+                                <service.icon className="h-16 w-16 text-brand-orange" />
+                            </div>
+                        )}
+                        <div className="p-6 text-center">
+                            <h3 className="text-xl font-bold text-brand-blue">{service.name}</h3>
+                            <p className="mt-2 text-base text-gray-500">{service.description.split('.')[0]}.</p>
                         </div>
-                        <h3 className="mt-4 text-xl font-bold text-brand-blue">{service.name}</h3>
-                        <p className="mt-2 text-base text-gray-500">{service.description.split('.')[0]}.</p>
                     </Link>
                 ))}
             </div>
@@ -169,6 +187,113 @@ const Home: React.FC = () => {
                     </div>
                 ))}
             </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold text-brand-blue sm:text-4xl">Why Choose Us</h2>
+            <p className="mt-4 text-xl text-gray-600">We go above and beyond to ensure your complete satisfaction</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">Respectful Service</h3>
+                <p className="text-gray-600">We always remove our shoes when entering your home</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">24/7 Communication</h3>
+                <p className="text-gray-600">Always available to answer your questions and concerns</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">Original Parts Only</h3>
+                <p className="text-gray-600">We use only genuine OEM parts for all repairs</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">Full Transparency</h3>
+                <p className="text-gray-600">We explain the problem and our solution in detail</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">Welcome to Watch</h3>
+                <p className="text-gray-600">You're always welcome to observe the repair process</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">Upfront Pricing</h3>
+                <p className="text-gray-600">We provide the cost before starting any work</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">Courtesy Call</h3>
+                <p className="text-gray-600">We call 15-20 minutes before arrival</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded bg-brand-orange text-white">
+                  <FaCheck size={16} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-brand-blue text-lg mb-1">97% First-Visit Fix</h3>
+                <p className="text-gray-600">In most cases, we complete repairs in a single visit</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

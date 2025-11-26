@@ -5,6 +5,7 @@ export interface Service {
   id: string;
   name: string;
   icon: IconType;
+  image?: string;
   description: string;
   commonIssues: string[];
 }

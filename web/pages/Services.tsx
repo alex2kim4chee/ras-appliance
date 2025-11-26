@@ -26,11 +26,22 @@ const Services: React.FC = () => {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {SERVICES.map(service => (
                     <div key={service.id} className="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-                        <div className="p-8 flex-grow">
-                             <div className="flex items-center justify-center h-16 w-16 rounded-full bg-brand-orange/10 mx-auto">
-                                <service.icon className="h-10 w-10 text-brand-orange" />
+                        {service.image ? (
+                            <div className="w-full h-56 overflow-hidden bg-gray-100">
+                                <img
+                                    src={service.image}
+                                    alt={service.name}
+                                    className="w-full h-full object-cover"
+                                    loading="lazy"
+                                />
                             </div>
-                            <h3 className="mt-6 text-2xl font-bold text-brand-blue text-center">{service.name} Repair</h3>
+                        ) : (
+                            <div className="flex items-center justify-center h-56 bg-gray-100">
+                                <service.icon className="h-20 w-20 text-brand-orange" />
+                            </div>
+                        )}
+                        <div className="p-8 flex-grow">
+                            <h3 className="text-2xl font-bold text-brand-blue text-center">{service.name} Repair</h3>
                             <p className="mt-4 text-base text-gray-600 text-center">{service.description}</p>
                         </div>
                         <div className="p-6 bg-gray-50">

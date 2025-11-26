@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useModal } from '../App';
 import { CONTACT } from '../constants';
-import { FaPhoneAlt, FaWrench, FaBars, FaTimes } from 'react-icons/fa';
+import { FaPhoneAlt, FaWrench, FaBars, FaTimes, FaClock } from 'react-icons/fa';
 
 const Header: React.FC = () => {
   const { openModal } = useModal();
@@ -33,12 +33,23 @@ const Header: React.FC = () => {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-blue shadow-lg' : 'bg-brand-blue/90'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between py-3 md:h-20">
           <div className="flex-shrink-0">
-            <NavLink to="/" className="text-white text-2xl font-bold tracking-tight">
-              FixbyRAS<span className="text-brand-orange">.</span>
+            <NavLink to="/" className="flex flex-col leading-tight">
+              <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">Residential Appliance Services</span>
+              <span className="text-brand-orange text-xs md:text-sm lg:text-base font-semibold">FixbyRAS<span className="text-white">.</span></span>
             </NavLink>
           </div>
+
+          {/* Business Hours - Desktop */}
+          <div className="hidden lg:flex items-center text-white/90 text-sm">
+            <FaClock className="mr-2 text-brand-orange" />
+            <div className="flex flex-col leading-tight">
+              <span>{CONTACT.BUSINESS_HOURS.WEEKDAY}</span>
+              <span>{CONTACT.BUSINESS_HOURS.WEEKEND}</span>
+            </div>
+          </div>
+
           <div className="hidden md:block">
             <nav className="ml-10 flex items-baseline space-x-4">
               {navLinks.map(link => (
@@ -76,6 +87,14 @@ const Header: React.FC = () => {
               ))}
           </div>
           <div className="pt-4 pb-3 border-t border-gray-700">
+             {/* Business Hours - Mobile */}
+             <div className="flex items-center justify-center text-white/90 text-sm mb-4 px-4">
+               <FaClock className="mr-2 text-brand-orange" />
+               <div className="flex flex-col leading-tight text-center">
+                 <span>{CONTACT.BUSINESS_HOURS.WEEKDAY}</span>
+                 <span>{CONTACT.BUSINESS_HOURS.WEEKEND}</span>
+               </div>
+             </div>
              <div className="flex flex-col items-center space-y-3 px-2">
                 <a href={CONTACT.PHONE_TEL} className="w-full text-center flex items-center justify-center gap-2 bg-transparent border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-bold py-3 px-4 rounded-md transition-all duration-300">
                     <FaPhoneAlt />

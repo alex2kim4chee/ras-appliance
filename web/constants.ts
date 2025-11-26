@@ -23,14 +23,14 @@ export const CONTACT = {
 };
 
 export const SERVICES: Service[] = [
-  { id: 'refrigerator', name: 'Refrigerator', icon: LuRefrigerator, description: "Repair for all refrigerator issues, including cooling problems, leaks, and noisy operation.", commonIssues: ['Not cooling', 'Leaking water', 'Freezer is defrosting', 'Making loud noises'] },
-  { id: 'washer', name: 'Washer', icon: LuWashingMachine, description: "Expert washer repair for leaks, spin cycle issues, and error codes.", commonIssues: ['Not spinning', 'Leaking', 'Won\'t turn on', 'Making strange noises'] },
-  { id: 'dryer', name: 'Dryer', icon: LuFan, description: "Fast dryer repair for no-heat problems, tumbling issues, and long drying times.", commonIssues: ['Not heating', 'Not tumbling', 'Takes too long to dry', 'Loud squeaking or grinding'] },
-  { id: 'dishwasher', name: 'Dishwasher', icon: LuUtensilsCrossed, description: "Complete dishwasher repair services for poor cleaning, leaks, and electronic faults.", commonIssues: ['Not draining', 'Dishes are still dirty', 'Leaking from the door', 'Making unusual noises'] },
-  { id: 'oven', name: 'Oven', icon: LuMicrowave, description: "Reliable oven repair for all brands. We fix heating elements, thermostats, and more.", commonIssues: ['Not heating', 'Baking unevenly', 'Door won\'t close', 'Self-cleaning not working'] },
-  { id: 'stove-range', name: 'Stove/Range', icon: LuCookingPot, description: "Servicing all major stove and range brands for burner, ignition, and control board problems.", commonIssues: ['Burner won\'t light', 'Temperature not accurate', 'Indicator light stays on', 'Control panel not working'] },
-  { id: 'cooktop', name: 'Cooktop', icon: LuFlame, description: "Specialized cooktop repair for induction, electric, and gas models.", commonIssues: ['Element not heating', 'Igniter keeps clicking', 'Cracked glass surface', 'Controls unresponsive'] },
-  { id: 'wine-cooler', name: 'Wine Cooler', icon: LuWine, description: "Premium wine cooler and cellar repair to protect your collection.", commonIssues: ['Not cooling', 'Too cold / freezing', 'Leaking water', 'Won\'t turn on'] },
+  { id: 'refrigerator', name: 'Refrigerator', icon: LuRefrigerator, image: '/devices/fridge.jpg', description: "Repair for all refrigerator issues, including cooling problems, leaks, and noisy operation.", commonIssues: ['Not cooling', 'Leaking water', 'Freezer is defrosting', 'Making loud noises'] },
+  { id: 'washer', name: 'Washer', icon: LuWashingMachine, image: '/devices/washer.jpg', description: "Expert washer repair for leaks, spin cycle issues, and error codes.", commonIssues: ['Not spinning', 'Leaking', 'Won\'t turn on', 'Making strange noises'] },
+  { id: 'dryer', name: 'Dryer', icon: LuFan, image: '/devices/dryer.jpg', description: "Fast dryer repair for no-heat problems, tumbling issues, and long drying times.", commonIssues: ['Not heating', 'Not tumbling', 'Takes too long to dry', 'Loud squeaking or grinding'] },
+  { id: 'dishwasher', name: 'Dishwasher', icon: LuUtensilsCrossed, image: '/devices/dishwasher.jpg', description: "Complete dishwasher repair services for poor cleaning, leaks, and electronic faults.", commonIssues: ['Not draining', 'Dishes are still dirty', 'Leaking from the door', 'Making unusual noises'] },
+  { id: 'oven', name: 'Oven', icon: LuMicrowave, image: '/devices/oven.JPG', description: "Reliable oven repair for all brands. We fix heating elements, thermostats, and more.", commonIssues: ['Not heating', 'Baking unevenly', 'Door won\'t close', 'Self-cleaning not working'] },
+  { id: 'stove-range', name: 'Stove/Range', icon: LuCookingPot, image: '/devices/stove.AVIF', description: "Servicing all major stove and range brands for burner, ignition, and control board problems.", commonIssues: ['Burner won\'t light', 'Temperature not accurate', 'Indicator light stays on', 'Control panel not working'] },
+  { id: 'cooktop', name: 'Cooktop', icon: LuFlame, image: '/devices/cooktop.JPG', description: "Specialized cooktop repair for induction, electric, and gas models.", commonIssues: ['Element not heating', 'Igniter keeps clicking', 'Cracked glass surface', 'Controls unresponsive'] },
+  { id: 'wine-cooler', name: 'Wine Cooler', icon: LuWine, image: '/devices/wine-cooler.JPG', description: "Premium wine cooler and cellar repair to protect your collection.", commonIssues: ['Not cooling', 'Too cold / freezing', 'Leaking water', 'Won\'t turn on'] },
 ];
 
 export const PREMIUM_BRANDS = [
@@ -56,7 +56,7 @@ export const REVIEWS: Review[] = [
 
 export const FAQ_ITEMS: FAQItem[] = [
     { question: 'What is your diagnostic or service call fee?', answer: 'We have a standard diagnostic fee that covers the technician\'s travel and time to thoroughly inspect your appliance and provide a detailed repair estimate. This fee is waived if you proceed with the recommended repair.' },
-    { question: 'Do you offer a warranty on your repairs?', answer: 'Yes, we stand by our work. All our repairs are backed by a comprehensive warranty covering both parts and labor. The duration of the warranty varies depending on the type of repair and parts used.' },
+    { question: 'Do you offer a warranty on your repairs?', answer: 'Yes, we stand by our work. All our repairs are backed by a comprehensive 90-day warranty covering both parts and labor. This ensures your peace of mind and guarantees the quality of our service.' },
     { question: 'How quickly can you come for a repair?', answer: 'We offer same-day service options based on availability. When you call or book online, we will provide you with the earliest available appointment window, often within a few hours.' },
     { question: 'Do you use genuine manufacturer parts?', answer: 'Absolutely. We specialize in premium brands and primarily use original equipment manufacturer (OEM) parts to ensure the highest quality repair, reliability, and longevity for your appliance.' },
 ];

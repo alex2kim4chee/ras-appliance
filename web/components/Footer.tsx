@@ -75,6 +75,8 @@ const Footer: React.FC = () => {
               {PREMIUM_BRANDS.map(brand => (
                 <span key={brand.name} className="text-gray-300">{brand.name}</span>
               ))}
+              <span className="text-gray-300">Viking</span>
+              <span className="text-gray-300">and others</span>
             </div>
           </div>
         </div>
