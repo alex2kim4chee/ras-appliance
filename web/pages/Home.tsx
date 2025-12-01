@@ -345,11 +345,11 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            <div className="text-center">
-                <Link to="/reviews" className="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-md hover:bg-red-700 transition-colors mr-4">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <Link to="/reviews" className="w-full sm:w-auto text-center bg-red-600 text-white font-bold py-3 px-8 rounded-md hover:bg-red-700 transition-colors">
                   View All Reviews
                 </Link>
-                <a href={CONTACT.YELP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-md hover:bg-brand-blue-dark transition-colors">
+                <a href={CONTACT.YELP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto text-center bg-brand-blue text-white font-bold py-3 px-8 rounded-md hover:bg-brand-blue-dark transition-colors">
                   Read on Yelp
                 </a>
             </div>
