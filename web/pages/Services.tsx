@@ -27,7 +27,7 @@ const Services: React.FC = () => {
                 {SERVICES.map(service => (
                     <div key={service.id} className="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
                         {service.image ? (
-                            <div className="w-full h-56 overflow-hidden bg-gray-100">
+                            <div className="w-full aspect-square overflow-hidden bg-gray-100">
                                 <img
                                     src={service.image}
                                     alt={service.name}
@@ -36,7 +36,7 @@ const Services: React.FC = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="flex items-center justify-center h-56 bg-gray-100">
+                            <div className="flex items-center justify-center aspect-square bg-gray-100">
                                 <service.icon className="h-20 w-20 text-brand-orange" />
                             </div>
                         )}

@@ -142,7 +142,7 @@ const Home: React.FC = () => {
                 {SERVICES.slice(0, 8).map(service => (
                     <Link key={service.id} to={`/services/${service.id}`} className="block overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100">
                         {service.image ? (
-                            <div className="w-full h-48 overflow-hidden bg-gray-100">
+                            <div className="w-full aspect-square overflow-hidden bg-gray-100">
                                 <img
                                     src={service.image}
                                     alt={service.name}
@@ -151,7 +151,7 @@ const Home: React.FC = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="flex justify-center items-center h-48 bg-gray-100">
+                            <div className="flex justify-center items-center aspect-square bg-gray-100">
                                 <service.icon className="h-16 w-16 text-brand-orange" />
                             </div>
                         )}
